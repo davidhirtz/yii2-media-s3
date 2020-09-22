@@ -6,7 +6,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "davidhirtz/yii2-media": "dev-master"
+    "davidhirtz/yii2-media": "dev-master",
+    "aws/aws-sdk-php": "^3.154"
   },
   "autoload": {
     "psr-4": {
