@@ -2,11 +2,11 @@
 
 namespace davidhirtz\yii2\media\s3\composer;
 
+use davidhirtz\yii2\media\s3\Module;
 use davidhirtz\yii2\skeleton\composer\BootstrapTrait;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 use Yii;
-use yii\base\InvalidConfigException;
 
 /**
  * Class Bootstrap
@@ -21,16 +21,32 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        if(!$bucket = ($app->getModules()['media-s3']['bucket'] ?? false)) {
-            throw new InvalidConfigException("Please specify an S3 bucket name.");
+        $this->extendModule($app, 'media-s3', [
+            'class' => 'davidhirtz\yii2\media\s3\Module',
+        ]);
+
+        /** @var Module $module */
+        $module = Yii::$app->getModule('media-s3');
+
+        if ($module->bucket) {
+            $this->extendModule($app, 'media', [
+                'baseUrl' => "https://{$module->bucket}.s3.{$module->region}.amazonaws.com/",
+            ]);
+
+            // Override upload path and disable renaming folders as this is currently not
+            // supported by the Amazon S3 stream wrapper.
+            $app->setModule('media', array_merge($app->getModules()['media'], [
+                'uploadPath' => "s3://{$module->bucket}/",
+                'enableRenameFolders' => false,
+            ]));
         }
 
-        $this->extendModules($app, [
-            'media' => [
-                'uploadPath' => "s3://{$bucket}/",
-            ],
-            'media-s3' => [
-                'class' => 'davidhirtz\yii2\media\s3\Module',
+        $client = $module->getClient();
+        $client->registerStreamWrapper();
+
+        stream_context_set_default([
+            's3' => [
+                'ACL' => 'private',
             ],
         ]);
     }
