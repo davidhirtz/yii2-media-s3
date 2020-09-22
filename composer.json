@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "davidhirtz\\yii2\\media\\s3": ""
+      "davidhirtz\\yii2\\media\\s3\\": ""
     }
   },
   "extra": {
