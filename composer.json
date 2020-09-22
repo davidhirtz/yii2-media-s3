@@ -1,0 +1,25 @@
+{
+  "name": "davidhirtz/yii2-media-s3",
+  "type": "yii2-extension",
+  "description": "Yii2 Media Amazon S3 extension",
+  "homepage": "http://www.davidhirtz.com/",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "davidhirtz/yii2-media": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "davidhirtz\\yii2\\media\\s3": ""
+    }
+  },
+  "extra": {
+    "bootstrap": "davidhirtz\\yii2\\media\\s3\\composer\\Bootstrap"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:davidhirtz/yii2-media.git"
+    }
+  ]
+}
