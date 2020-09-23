@@ -16,29 +16,24 @@ class Module extends \yii\base\Module
     use ModuleTrait;
 
     /**
-     * @var string
+     * @var string the Amazon S3 bucket name
      */
     public $bucket;
 
     /**
-     * @var string
-     */
-    public $awsAccessKey;
-
-    /**
-     * @var string
-     */
-    public $awsAccessSecret;
-
-    /**
-     * @var string
+     * @var string the Amazon S3 region
      */
     public $region;
 
     /**
-     * @var bool
+     * @var string the Amazon S3 access key
      */
-    public $useStaticWebsite = false;
+    public $awsAccessKey;
+
+    /**
+     * @var string the Amazon S3 access secret
+     */
+    public $awsAccessSecret;
 
     /**
      * @var S3Client
