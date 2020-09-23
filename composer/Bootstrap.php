@@ -30,7 +30,7 @@ class Bootstrap implements BootstrapInterface
 
         if ($module->bucket) {
             $this->extendModule($app, 'media', [
-                'baseUrl' => "https://{$module->bucket}.s3.{$module->region}.amazonaws.com/",
+                'baseUrl' => "http://{$module->bucket}.s3-website.{$module->region}.amazonaws.com/"
             ]);
 
             // Override upload path and disable renaming folders as this is currently not
@@ -47,6 +47,7 @@ class Bootstrap implements BootstrapInterface
         stream_context_set_default([
             's3' => [
                 'ACL' => 'private',
+                'seekable' => true,
             ],
         ]);
     }
