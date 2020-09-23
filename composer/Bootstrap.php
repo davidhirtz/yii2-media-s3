@@ -29,14 +29,10 @@ class Bootstrap implements BootstrapInterface
         $module = Yii::$app->getModule('media-s3');
 
         if ($module->bucket) {
-            $this->extendModule($app, 'media', [
-                'baseUrl' => $module->useStaticWebsite ? "http://{$module->bucket}.s3-website.{$module->region}.amazonaws.com/" : "https://{$module->bucket}.s3.{$module->region}.amazonaws.com/"
-            ]);
-
             // Override upload path and disable renaming folders as this is currently not
             // supported by the Amazon S3 stream wrapper.
             $app->setModule('media', array_merge($app->getModules()['media'], [
-                'uploadPath' => "s3://{$module->bucket}/",
+                'webroot' => "s3://{$module->bucket}/",
                 'enableRenameFolders' => false,
             ]));
 

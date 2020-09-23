@@ -72,9 +72,7 @@ class Module extends \yii\base\Module
     {
         if($this->_client === null) {
             $this->_client = new S3Client(array_filter([
-                //'bucket_endpoint' => true,
                 'credentials' => $this->getCredentials(),
-                //'endpoint' => "https://{$this->bucket}.s3.amazonaws.com",
                 'region' => $this->region,
                 'version' => 'latest',
             ]));
