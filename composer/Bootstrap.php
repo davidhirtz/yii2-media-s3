@@ -39,16 +39,16 @@ class Bootstrap implements BootstrapInterface
                 'uploadPath' => "s3://{$module->bucket}/",
                 'enableRenameFolders' => false,
             ]));
+
+            $client = $module->getClient();
+            $client->registerStreamWrapper();
+
+            stream_context_set_default([
+                's3' => [
+                    'ACL' => 'private',
+                    'seekable' => true,
+                ],
+            ]);
         }
-
-        $client = $module->getClient();
-        $client->registerStreamWrapper();
-
-        stream_context_set_default([
-            's3' => [
-                'ACL' => 'private',
-                'seekable' => true,
-            ],
-        ]);
     }
 }
