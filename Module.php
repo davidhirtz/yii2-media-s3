@@ -45,6 +45,10 @@ class Module extends \yii\base\Module
      */
     public function init()
     {
+        if($this->bucket === null) {
+            $this->bucket = Yii::$app->params['bucket'] ?? null;
+        }
+
         if($this->awsAccessKey === null) {
             $this->awsAccessKey = Yii::$app->params['awsAccessKey'] ?? null;
         }
