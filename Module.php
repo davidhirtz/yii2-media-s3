@@ -36,6 +36,11 @@ class Module extends \yii\base\Module
     public $region;
 
     /**
+     * @var bool
+     */
+    public $useStaticWebsite = false;
+
+    /**
      * @var S3Client
      */
     private $_client;

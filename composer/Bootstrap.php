@@ -30,7 +30,7 @@ class Bootstrap implements BootstrapInterface
 
         if ($module->bucket) {
             $this->extendModule($app, 'media', [
-                'baseUrl' => "http://{$module->bucket}.s3-website.{$module->region}.amazonaws.com/"
+                'baseUrl' => $module->useStaticWebsite ? "http://{$module->bucket}.s3-website.{$module->region}.amazonaws.com/" : "https://{$module->bucket}.s3.{$module->region}.amazonaws.com/"
             ]);
 
             // Override upload path and disable renaming folders as this is currently not
