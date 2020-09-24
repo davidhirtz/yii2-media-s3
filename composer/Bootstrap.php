@@ -10,7 +10,7 @@ use Yii;
 
 /**
  * Class Bootstrap
- * @package davidhirtz\yii2\media\s3\bootstrap
+ * @package davidhirtz\yii2\media\s3\composer
  */
 class Bootstrap implements BootstrapInterface
 {
