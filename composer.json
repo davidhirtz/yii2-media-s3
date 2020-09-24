@@ -1,7 +1,7 @@
 {
   "name": "davidhirtz/yii2-media-s3",
   "type": "yii2-extension",
-  "description": "Yii2 Media Amazon S3 extension",
+  "description": "Yii2 Media Management Amazon S3 extension",
   "homepage": "http://www.davidhirtz.com/",
   "minimum-stability": "dev",
   "prefer-stable": true,
