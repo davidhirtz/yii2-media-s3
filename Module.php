@@ -45,12 +45,20 @@ class Module extends \yii\base\Module
      */
     public function init()
     {
+        if($this->bucket === null) {
+            $this->bucket = Yii::$app->params['awsS3Bucket'] ?? null;
+        }
+
+        if($this->region === null) {
+            $this->region = Yii::$app->params['awsS3Region'] ?? null;
+        }
+
         if($this->awsAccessKey === null) {
-            $this->awsAccessKey = Yii::$app->params['awsAccessKey'] ?? null;
+            $this->awsAccessKey = Yii::$app->params['awsS3AccessKey'] ?? null;
         }
 
         if($this->awsAccessSecret === null) {
-            $this->awsAccessSecret = Yii::$app->params['awsAccessSecret'] ?? null;
+            $this->awsAccessSecret = Yii::$app->params['awsS3AccessSecret'] ?? null;
         }
 
         parent::init();
