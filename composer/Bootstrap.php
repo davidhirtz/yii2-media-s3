@@ -3,8 +3,7 @@
 namespace davidhirtz\yii2\media\s3\composer;
 
 use davidhirtz\yii2\media\s3\Module;
-use davidhirtz\yii2\skeleton\composer\BootstrapTrait;
-use yii\base\Application;
+use davidhirtz\yii2\skeleton\web\Application;
 use yii\base\BootstrapInterface;
 use Yii;
 
@@ -14,14 +13,12 @@ use Yii;
  */
 class Bootstrap implements BootstrapInterface
 {
-    use BootstrapTrait;
-
     /**
      * @param Application $app
      */
     public function bootstrap($app)
     {
-        $this->extendModule($app, 'media-s3', [
+        $app->extendModule('media-s3', [
             'class' => 'davidhirtz\yii2\media\s3\Module',
         ]);
 
