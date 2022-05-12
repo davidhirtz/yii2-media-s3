@@ -16,11 +16,5 @@
   },
   "extra": {
     "bootstrap": "davidhirtz\\yii2\\media\\s3\\composer\\Bootstrap"
-  },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:davidhirtz/yii2-media.git"
-    }
-  ]
+  }
 }
