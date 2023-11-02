@@ -7,19 +7,15 @@ use davidhirtz\yii2\skeleton\web\Application;
 use yii\base\BootstrapInterface;
 use Yii;
 
-/**
- * Class Bootstrap
- * @package davidhirtz\yii2\media\s3\composer
- */
 class Bootstrap implements BootstrapInterface
 {
     /**
      * @param Application $app
      */
-    public function bootstrap($app)
+    public function bootstrap($app): void
     {
         $app->extendModule('media-s3', [
-            'class' => 'davidhirtz\yii2\media\s3\Module',
+            'class' => Module::class,
         ]);
 
         /** @var Module $module */
@@ -29,7 +25,7 @@ class Bootstrap implements BootstrapInterface
             // Override webroot and disable renaming folders as this is currently not
             // supported by the Amazon S3 stream wrapper.
             $app->setModule('media', array_merge($app->getModules()['media'], [
-                'webroot' => "s3://{$module->bucket}/",
+                'webroot' => "s3://$module->bucket/",
                 'enableRenameFolders' => false,
             ]));
 
