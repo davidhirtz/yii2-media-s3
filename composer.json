@@ -6,7 +6,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "davidhirtz/yii2-media": "^v2.0",
+    "davidhirtz/yii2-media": "^2.0",
     "aws/aws-sdk-php": "^3.154"
   },
   "autoload": {
