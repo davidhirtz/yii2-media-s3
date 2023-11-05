@@ -1,8 +1,7 @@
 <?php
 
-namespace davidhirtz\yii2\media\s3\composer;
+namespace davidhirtz\yii2\media\s3;
 
-use davidhirtz\yii2\media\s3\Module;
 use davidhirtz\yii2\skeleton\web\Application;
 use yii\base\BootstrapInterface;
 use Yii;
