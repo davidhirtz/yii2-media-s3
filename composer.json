@@ -1,10 +1,14 @@
 {
   "name": "davidhirtz/yii2-media-s3",
-  "type": "yii2-extension",
-  "description": "Yii2 Media Amazon S3 extension",
-  "homepage": "https://www.davidhirtz.com/",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
+  "description": "Amazon S3 extension for media management module based on Yii 2.0 framework",
+  "license": "proprietary",
+  "homepage": "https://www.github.com/davidhirtz/yii2-media-s3",
+  "authors": [
+    {
+      "name": "David Hirtz",
+      "homepage": "https://www.davidhirtz.com/"
+    }
+  ],
   "require": {
     "davidhirtz/yii2-media": "^2.0.2",
     "aws/aws-sdk-php": "^3.154"
